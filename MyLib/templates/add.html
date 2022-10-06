@@ -1,0 +1,17 @@
+<h1>Add Book To Read</h1>
+
+<form action="addtocart/" method="post">
+{% csrf_token %}
+Enter Name:<br>
+<input name="first">
+<br><br>
+
+    <p>Bookname : {{books.bookname}}</p>
+    <br><br>
+    <p>Author : {{books.bookauthor}}</p>
+    <br><br>
+    <p>Price : {{books.price}}</p>
+    <br><br>
+    <input type="submit" value="Add to Cart">
+
+</form>

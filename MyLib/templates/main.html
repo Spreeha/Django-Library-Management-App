@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
+    <title>Welcome to Library</title>
+</head>
+<body>
+    <br>
+	<br>
+    {%block content%}
+
+    <div class="container card">
+        <h1>Book Names</h1>
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr>
+                    <th>ID</th>
+                    <th>Author</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Add to Read</th>
+                    <th></th>
+                </tr>
+                {% for i in books %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.bookauthor}}</td>
+                        <td>{{i.bookname}}</td>
+                        <td>{{i.price}}</td>
+                        <td><a href="add/{{ i.id }}" class="btn btn-info btn-sm" type="submit">+</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <a href="viewcart/" class="btn btn-info btn-sm" type="submit">View Cart</a>
+    </div>
+    
+    {% endblock %}
+</body>
+
+<body style="margin-top: 30px;margin-left: 30px;">
+    <form action="uploadapps/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file"
+               title="Upload excel file"
+               name="excel_file"
+               style="border: 1px solid black; padding: 5px;"
+               required="required">
+        <p>
+        <input type="submit"
+               value="Upload"
+               style="border: 1px solid green; padding:5px; border-radius: 2px; cursor: pointer;">
+    </form>
+
+    <p></p>
+    <hr>
+
+    {% for row in excel_data %}
+        {% for cell in row %}
+            {{ cell }}&nbsp;&nbsp;
+        {% endfor %}
+        <br>
+    {% endfor %}
+</body>
+</html>

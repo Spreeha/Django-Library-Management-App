@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<head>
+    <style>
+        .maindiv{
+            border:1px solid black;
+        }
+    </style>
+</head>
+
+<div class="container">
+<h1 class="display-4">Welcome to the Library</h1>
+<br>
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;" >
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <button style="color:black;" class="btn btn-outline-success me-2" type="button"><a class="user" href="{% url 'login' %}">Login</a></button>
+        </li>
+        <br><br>
+        <li class="nav-item">
+            <button onClick="window.location.href='http://programminghead.com';" style="color:black;" class="btn btn-outline-success me-2" type="button">Register</button>
+        </li>
+    </ul>
+</nav>
+</div>
+{% endblock %}
