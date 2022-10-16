@@ -92,7 +92,11 @@ def addtocart(request):
 def viewcart(request):
     bookcart = Checkout.objects.all().values()
     template = loader.get_template('viewcart.html')
-    return render(request,'viewcart.html')
+    context = {
+            'bookcart': bookcart,
+        }
+    return HttpResponse(template.render(context, request))
+    #return render(request,'viewcart.html')
 
 def uploadapps(request):
     if "GET" == request.method:

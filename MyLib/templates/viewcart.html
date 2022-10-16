@@ -1,1 +1,42 @@
-Hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
+    <title>Welcome to Library</title>
+</head>
+<body>
+    <br>
+	<br>
+    {%block content%}
+
+    <div class="container card">
+        <h1>Books In Cart</h1>
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr>
+                    <th>ID</th>
+                    <th>Author</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+                {% for i in bookcart %}
+                    <tr>
+                        <td>{{i.id}}</td>
+                        <td>{{i.bookauthor}}</td>
+                        <td>{{i.bookname}}</td>
+                        <td>{{i.price}}</td>
+                        <td><a href="add/{{ i.id }}" class="btn btn-info btn-sm" type="submit">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
+    </div>
+    
+    {% endblock %}
+</body>
+
+</html>
