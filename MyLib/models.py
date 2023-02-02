@@ -26,6 +26,8 @@ class Books(models.Model):
     bookID = models.IntegerField(null=True)
     bookname = models.CharField(max_length=255)
     bookauthor = models.CharField(max_length=255)
+    bookdescription = models.CharField(max_length=255)
+    bookrating = models.IntegerField(null=True) 
     price = models.IntegerField(null=True)
     seller_name = models.ForeignKey(Sellers, on_delete=models.CASCADE)
     def __str__(self):

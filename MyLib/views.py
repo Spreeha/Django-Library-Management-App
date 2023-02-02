@@ -83,10 +83,11 @@ def add(request, id):
 
 
 def addtocart(request):
-    buyername = request.POST['first']
+    #buyername = request.POST['first']
+    buyername=""
     #book = request.session['bookinfo']
     bookinfo = val()
-    bookcheckout = Checkout(bookname=bookinfo.bookname , bookauthor=bookinfo.bookauthor, price=bookinfo.price, buyer_name=buyername, )
+    bookcheckout = Checkout(bookname=bookinfo.bookname , bookauthor=bookinfo.bookauthor,  price=bookinfo.price, buyer_name=buyername, )
     bookcheckout.save()
     return HttpResponseRedirect(reverse('index'))
 

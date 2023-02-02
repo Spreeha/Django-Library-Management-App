@@ -1,17 +1,32 @@
-<h1>Add Book To Read</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"0>
+    <title>Welcome to Library</title>
+</head>
 
-<form action="addtocart/" method="post">
-{% csrf_token %}
-Enter Name:<br>
-<input name="first">
-<br><br>
+<body>
+    <div class="container card">
+        <div class="card-body">
+    <h1>Add Book To Read</h1>
 
-    <p>Bookname : {{books.bookname}}</p>
+    <form action="addtocart/" method="post">
+    {% csrf_token %}
+    <!--Enter Name:<br>
+    <input name="first"> -->
     <br><br>
-    <p>Author : {{books.bookauthor}}</p>
-    <br><br>
-    <p>Price : {{books.price}}</p>
-    <br><br>
-    <input type="submit" value="Add to Cart">
 
-</form>
+        <p><b>Bookname :</b> {{books.bookname}}</p>
+        <p><b>Author :</b> {{books.bookauthor}}</p>
+        <p><b>Description :</b> {{books.bookdescription}}</p>
+        <p><b>Rating :</b> {{books.bookrating}}</p>
+        <p><b>Price in INR:</b> {{books.price}}</p>
+        <br><br>
+        <input type="submit" class="btn btn-info btn-sm" value="Add to Cart">
+
+    </form>
+    </div>
+    </div>
+</body>
