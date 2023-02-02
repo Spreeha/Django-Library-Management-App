@@ -10,9 +10,10 @@
     <br>
 	<br>
     {%block content%}
-
+    
     <div class="container card">
         <h1>Book Names</h1>
+        <a href="viewcart/" class="btn btn-info btn-sm" type="submit">View Cart</a>
         <div class="card-body">
             <table class="table table-hover">
                 <tr>
@@ -29,18 +30,18 @@
                         <td>{{i.bookauthor}}</td>
                         <td>{{i.bookname}}</td>
                         <td>{{i.price}}</td>
-                        <td><a href="add/{{ i.id }}" class="btn btn-info btn-sm" type="submit">+</a></td>
+                        <td><a href="add/{{ i.id }}" class="btn btn-info btn-sm" type="submit">Know More</a></td>
                     </tr>
                 {% endfor %}
             </table>
         </div>
-        <a href="viewcart/" class="btn btn-info btn-sm" type="submit">View Cart</a>
+        
     </div>
     
     {% endblock %}
 </body>
 
-<body style="margin-top: 30px;margin-left: 30px;">
+<!--<body style="margin-top: 30px;margin-left: 30px;">
     <form action="uploadapps/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="file"
@@ -63,5 +64,5 @@
         {% endfor %}
         <br>
     {% endfor %}
-</body>
+</body> -->
 </html>

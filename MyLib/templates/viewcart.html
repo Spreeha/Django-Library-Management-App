@@ -28,10 +28,11 @@
                         <td>{{i.bookauthor}}</td>
                         <td>{{i.bookname}}</td>
                         <td>{{i.price}}</td>
-                        <td><a href="add/{{ i.id }}" class="btn btn-info btn-sm" type="submit">Delete</a></td>
+                        <td><a href="delete/{{ i.id }}" class="btn btn-info btn-sm" type="submit">Delete</a></td>
                     </tr>
                 {% endfor %}
             </table>
+            <p><b>Total amount is: INR</b> {{total}}</p>
         </div>
         
     </div>

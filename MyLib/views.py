@@ -1,5 +1,6 @@
 from logging import NullHandler
 from logging.config import valid_ident
+from pyexpat.errors import messages
 from django.shortcuts import render,redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
@@ -91,12 +92,24 @@ def addtocart(request):
 
 def viewcart(request):
     bookcart = Checkout.objects.all().values()
+    cost = 0
+    for row in bookcart:
+        print(row)
+        cost =cost + row['price']
+        print("Cost is ",cost)
     template = loader.get_template('viewcart.html')
     context = {
             'bookcart': bookcart,
+            'total':cost
         }
     return HttpResponse(template.render(context, request))
     #return render(request,'viewcart.html')
+
+def delete(request, id):
+    book_to_delete = Checkout.objects.get(id=id)
+    print(book_to_delete.bookname)
+    book_to_delete.delete()
+    return HttpResponseRedirect('/viewcart')
 
 def uploadapps(request):
     if "GET" == request.method:
